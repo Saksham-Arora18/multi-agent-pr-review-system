@@ -9,7 +9,7 @@ from langchain_core.messages import SystemMessage, HumanMessage
 
 # One LLM instance shared across all agents
 llm = ChatGroq(
-    model="llama3-70b-8192",
+    model="llama-3.3-70b-versatile",
     api_key=os.getenv("GROQ_API_KEY"),
     temperature=0.1  # low temperature = consistent, focused reviews (not creative)
 )
