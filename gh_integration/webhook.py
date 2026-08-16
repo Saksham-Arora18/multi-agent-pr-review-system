@@ -63,7 +63,7 @@ async def run_review_pipeline(repo_name: str, pr_number: int, commit_sha: str):
         # Import here to avoid circular imports
         from db.connection import get_session
         from db.models import PullRequest, ReviewRun, ReviewComment
-        from github.github_client import get_pr_diff, post_all_approved_comments, post_review_summary
+        from gh_integration.github_client import get_pr_diff, post_all_approved_comments, post_review_summary
         from agents.retrieval_agent import run_retrieval_agent
         from agents.logic_agent import run_logic_agent
         from agents.security_agent import run_security_agent

@@ -9,7 +9,10 @@ import os, sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from typing import List, Dict, Optional
-from github import Github, GithubException
+from importlib import import_module
+_gh = import_module('github')
+Github = _gh.Github
+GithubException = _gh.GithubException
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -76,7 +79,7 @@ def get_pr_diff(repo_name: str, pr_number: int) -> str:
                 )
 
         full_diff = "\n".join(diff_parts)
-        print(f"  Fetched diff: {len(pr.get_files().totalCount)} files changed")
+        print(f"  Fetched diff: {pr.changed_files} files changed")
         return full_diff
 
     except GithubException as e:
