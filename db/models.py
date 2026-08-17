@@ -14,6 +14,7 @@ class PullRequest(Base):
     title = Column(Text)
     author = Column(Text)
     status = Column(Text, default="open")
+    commit_sha = Column(Text)
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
 
     review_runs = relationship("ReviewRun", back_populates="pull_request", cascade="all, delete")
