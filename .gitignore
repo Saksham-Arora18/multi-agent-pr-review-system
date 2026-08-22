@@ -5,3 +5,6 @@ __pycache__/
 *.pyo
 *.egg-info/
 .pytest_cache/
+frontend/.env
+frontend/.env.local
+frontend/node_modules/
